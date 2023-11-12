@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.3/dist/full.css" rel="stylesheet" type="text/css" />
+<!-- Material Icons Link -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"/>
+<!-- Font Awesome Link -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="crossorigin="anonymous"/>
+  <!-- stylesheet -->
+<link rel="stylesheet" href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css"/>
+<link href="/dist/output.css" rel="stylesheet">
+<title>Overdue</title>
+</head>
+
+<body>
+  <nav
+  class="relative flex w-full flex-wrap  items-center justify-center bg-cover bg-no-repeat bg-center py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-neutral-600 lg:py-4 " style="background-image: url(/src/img/background.jpg);"> 
+  <div class="flex w-full flex-wrap items-center justify-center px-3">
+    <div>
+      <div class="mx-20 my-1 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 lg:mb-0 lg:mt-0" href="#">
+        <img src="/src/logo/ccc_logo.png" style="height: 150px" alt="CCC Logo" loading="lazy" class="mr-4">
+        <h4 class="text-2xl text-center md:text-4xl lg:text-5xl font-extrabold font-['Poppins']  mb-6 text-white">
+          LEARNING & INFORMATION RESOURCE CENTER
+      </h4>
+        <img src="/src/logo/lirc_logo.png" style="height: 150px" alt="LIRC Logo" loading="lazy" class="mr-4">
+        <!-- Admin Menu -->
+        <div class="items-center justify-center ml-10">
+        <img
+        alt="admin profile picture"
+        src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHByb2Zlc3Npb25hbCUyMHByb2ZpbGUlMjBwaWN0dXJlfGVufDB8fDB8fHww"
+        class="border-solid border-2 relative inline-block h-12 w-12 cursor-pointer rounded-full object-cover object-center"
+        data-popover-target="profile-menu"/>
+        <p class="text-sm font-thin text-center text-white uppercase mt-2">admin</p> </div>
+      <!-- Dropdown menu -->
+      <ul
+        role="menu"
+        data-popover="profile-menu"
+        data-popover-placement="bottom"
+        class="absolute  z-10 flex min-w-[180px] flex-col gap-2 overflow-auto rounded-md border border-blue-gray-50 bg-white p-3 font-sans text-sm font-normal text-blue-gray-500 shadow-lg shadow-blue-gray-500/10 focus:outline-none pointer-events-none opacity-0 transition-opacity duration-300"
+      >
+      <!-- My profile  -->
+        <button
+          tabIndex="-1"
+          role="menuitem"
+          class="flex w-full cursor-pointer select-none items-center gap-2 rounded-md px-3 pt-[9px] pb-2 text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
+        >
+        <i class="fa-regular fa-user"></i>
+          <p class="block font-sans text-sm font-normal leading-normal text-inherit antialiased">
+            My Profile
+          </p>
+        </button>
+         <!-- Notification -->
+        <button
+          tabIndex="-1"
+          role="menuitem"
+          class="flex w-full cursor-pointer select-none items-center gap-2 rounded-md px-3 pt-[9px] pb-2 text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
+        >
+        <i class="fa-regular fa-bell"></i>
+          <p class="block font-sans text-sm font-normal leading-normal text-inherit antialiased">
+            Notification
+          </p>
+        </button>
+         <!-- Inbox  -->
+        <button
+          tabIndex="-1"
+          role="menuitem"
+          class="flex w-full cursor-pointer select-none items-center gap-2 rounded-md px-3 pt-[9px] pb-2 text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
+        >
+        <i class="fa-regular fa-envelope"></i>
+          <p class="block font-sans text-sm font-normal leading-normal text-inherit antialiased">
+            Inbox
+          </p>
+        </button>
+     <!-- Sign Out  -->
+        <button
+          tabIndex="1"
+          role="menuitem"
+          class="flex w-full cursor-pointer select-none items-center gap-2 rounded-md px-3 pt-[9px] pb-2 text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <p class="block font-sans text-sm font-normal leading-normal text-inherit antialiased">
+            Sign Out
+          </p>
+        </button>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Table -->
+<div class="overflow-x-auto  flex justify-center items-center min-h-screen font-['Poppins'] bg-white text-blue-gray-900">
+  <div class="overflow-x-auto">
+    <table class="table">
+      <!-- head -->
+      <thead>
+        <tr class=" text-blue-gray-900">
+          <th>
+            <label>
+              <input type="checkbox" class="checkbox" />
+            </label>
+          </th>
+          <th>Code</th>
+          <th>Book Name</th>
+          <th>Book Author</th>
+          <th>Borrower</th>
+          <th>Program</th>
+          <th>Section</th>
+          <th>Borrow Date</th>
+          <th>Deadline</th>
+          <th>Status</th>
+          <th>Notes</th>
+          <th>Modification</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- row 1 -->
+        <tr class="date-time-table">
+          <th>
+            <label>
+              <input type="checkbox" class="checkbox" />
+            </label>
+          </th>
+          <td>
+            <div class="flex items-center space-x-3">
+              <div>
+                <div class="font-bold">543210</div>
+                <!-- <div class="text-sm opacity-50">text</div> -->
+              </div>
+            </div>
+          </td>
+          <td>
+            Book Sample
+            <br/>
+            <!-- <span class="badge badge-ghost badge-sm">text</span> -->
+          </td>
+          <td>Author Sample</td>
+          <td>Borrower Sample</td>
+          <td>BSIT</td>
+          <td>IT 6</td>
+          <td>11/12/2023, 03:25:23 PM</td>
+          <td>11/12/2023, 03:25:23 PM</td>
+          <td>Lost</td>
+          <td></td>
+          <th>
+            <button class="btn btn-ghost btn-sm">
+              <i class="fa-solid fa-trash-can text-red-500"></i>
+          </button>
+          <button class="btn btn-ghost btn-sm">
+            <i class="fa-solid fa-pen-to-square  text-green-500"></i>
+        </button>
+        </th>
+        </tr>
+        <!-- row 2 -->
+        <tr class="date-time-table">
+          <th>
+            <label>
+              <input type="checkbox" class="checkbox" />
+            </label>
+          </th>
+          <td>
+            <div class="flex items-center space-x-3">
+              <div>
+                <div class="font-bold">543210</div>
+                <!-- <div class="text-sm opacity-50">text</div> -->
+              </div>
+            </div>
+          </td>
+          <td>
+            Book Sample
+            <br/>
+            <!-- <span class="badge badge-ghost badge-sm">text</span> -->
+          </td>
+          <td>Author Sample</td>
+          <td>Borrower Sample</td>
+          <td>BSIT</td>
+          <td>IT 6</td>
+          <td>11/12/2023, 03:25:23 PM</td>
+          <td>11/12/2023, 03:25:23 PM</td>
+          <td>Lost</td>
+          <td></td>
+          <th>
+            <button class="btn btn-ghost btn-sm">
+              <i class="fa-solid fa-trash-can text-red-500"></i>
+          </button>
+          <button class="btn btn-ghost btn-sm">
+            <i class="fa-solid fa-pen-to-square  text-green-500"></i>
+        </button>
+        </th>
+        </tr>
+        <!-- row 3 -->
+        <tr class="date-time-table">
+          <th>
+            <label>
+              <input type="checkbox" class="checkbox" />
+            </label>
+          </th>
+          <td>
+            <div class="flex items-center space-x-3">
+              <div>
+                <div class="font-bold">543210</div>
+                <!-- <div class="text-sm opacity-50">text</div> -->
+              </div>
+            </div>
+          </td>
+          <td>
+            Book Sample
+            <br/>
+            <!-- <span class="badge badge-ghost badge-sm">text</span> -->
+          </td>
+          <td>Author Sample</td>
+          <td>Borrower Sample</td>
+          <td>BSIT</td>
+          <td>IT 6</td>
+          <td>11/12/2023, 03:25:23 PM</td>
+          <td>11/12/2023, 03:25:23 PM</td>
+          <td>Missed</td>
+          <td></td>
+          <th>
+            <button class="btn btn-ghost btn-sm">
+              <i class="fa-solid fa-trash-can text-red-500"></i>
+          </button>
+          <button class="btn btn-ghost btn-sm">
+            <i class="fa-solid fa-pen-to-square  text-green-500"></i>
+        </button>
+        </th>
+        </tr>
+        <!-- row 4 -->
+        <tr class="date-time-table">
+          <th>
+            <label>
+              <input type="checkbox" class="checkbox" />
+            </label>
+          </th>
+          <td>
+            <div class="flex items-center space-x-3">
+              <div>
+                <div class="font-bold">543210</div>
+                <!-- <div class="text-sm opacity-50">text</div> -->
+              </div>
+            </div>
+          </td>
+          <td>
+            Book Sample
+            <br/>
+            <!-- <span class="badge badge-ghost badge-sm">text</span> -->
+          </td>
+          <td>Author Sample</td>
+          <td>Borrower Sample</td>
+          <td>BSIT</td>
+          <td>IT 6</td>
+          <td>11/12/2023, 03:25:23 PM</td>
+          <td>11/12/2023, 03:25:23 PM</td>
+          <td>Overdue</td>
+          <td></td>
+          <th>
+            <button class="btn btn-ghost btn-sm">
+              <i class="fa-solid fa-trash-can text-red-500"></i>
+          </button>
+          <button class="btn btn-ghost btn-sm">
+            <i class="fa-solid fa-pen-to-square  text-green-500"></i>
+        </button>
+        </th>
+        </tr>
+        <!-- row 5 -->
+        <tr class="date-time-table">
+          <th>
+            <label>
+              <input type="checkbox" class="checkbox" />
+            </label>
+          </th>
+          <td>
+            <div class="flex items-center space-x-3">
+              <div>
+                <div class="font-bold">543210</div>
+                <!-- <div class="text-sm opacity-50">text</div> -->
+              </div>
+            </div>
+          </td>
+          <td>
+            Book Sample
+            <br/>
+            <!-- <span class="badge badge-ghost badge-sm">text</span> -->
+          </td>
+          <td>Author Sample</td>
+          <td>Borrower Sample</td>
+          <td>BSIT</td>
+          <td>IT 6</td>
+          <td>11/12/2023, 03:25:23 PM</td>
+          <td>11/12/2023, 03:25:23 PM</td>
+          <td>Missed</td>
+          <td></td>
+          <th>
+            <button class="btn btn-ghost btn-sm">
+              <i class="fa-solid fa-trash-can text-red-500"></i>
+          </button>
+          <button class="btn btn-ghost btn-sm">
+            <i class="fa-solid fa-pen-to-square  text-green-500"></i>
+        </button>
+        </th>
+        </tr>
+        <!-- row 6 -->
+        <tr class="date-time-table">
+          <th>
+            <label>
+              <input type="checkbox" class="checkbox" />
+            </label>
+          </th>
+          <td>
+            <div class="flex items-center space-x-3">
+              <div>
+                <div class="font-bold">543210</div>
+                <!-- <div class="text-sm opacity-50">text</div> -->
+              </div>
+            </div>
+          </td>
+          <td>
+            Book Sample
+            <br/>
+            <!-- <span class="badge badge-ghost badge-sm">text</span> -->
+          </td>
+          <td>Author Sample</td>
+          <td>Borrower Sample</td>
+          <td>BSIT</td>
+          <td>IT 6</td>
+          <td>11/12/2023, 03:25:23 PM</td>
+          <td>11/12/2023, 03:25:23 PM</td>
+          <td>Lost</td>
+          <td></td>
+          <th>
+            <button class="btn btn-ghost btn-sm">
+              <i class="fa-solid fa-trash-can text-red-500"></i>
+          </button>
+          <button class="btn btn-ghost btn-sm">
+            <i class="fa-solid fa-pen-to-square  text-green-500"></i>
+        </button>
+        </th>
+        </tr>
+      </tbody>
+      <!-- foot -->
+      <tfoot>
+        <tr>
+          <th></th>
+          <th>Code</th>
+          <th>Book Name</th>
+          <th>Book Author</th>
+          <th>Borrower</th>
+          <th>Program</th>
+          <th>Section</th>
+          <th>Borrow Date</th>
+          <th>Deadline</th>
+          <th>Status</th>
+          <th>Notes</th>
+          <th>Modification</th>
+          <th></th>
+        </tr>
+      </tfoot>
+      
+    </table>
+  </div>
+  </div>
+
+<!--Footer container-->
+<footer
+  class="flex flex-col items-center bg-darkblue text-center dark:bg-neutral-600 lg:text-left text-white font-['Poppins'] ">
+  <div class="container p-6 text-neutral-800 dark:text-neutral-200">
+    <div class="grid gap-4 lg:grid-cols-2">
+      <div class="mb-6 md:mb-0">
+        <h4 class="mb-2 font-medium text-3xl">LIRC</h4> <br>
+
+        <p class="mb-4">
+          JMC Building<br>
+          City College of Calamba, Former Municipal Hall,<br>
+          Burgos St., Brgy, 7, Poblacion, Calamba City <br>
+          Laguna, Philippines 4027
+        </p>
+      </div>
+
+      <div class="mb-6 md:mb-0 ml-80 ">
+        <h3 class="mb-2 font-medium text-3xl">Contact Details</h3> <br>
+
+        <p class="mb-4">
+          (049) 545 0160 | (049) 545 0555 <br>
+          lirc@ccc.edu.ph
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- External libraries -->
+<script src="https://unpkg.com/@material-tailwind/html@latest/scripts/script-name.js"></script>
+<!-- from node_modules -->
+<script type="module" src="node_modules/@material-tailwind/html@latest/scripts/popover.js"></script>
+<!-- from cdn -->
+<script type="module" src="https://unpkg.com/@material-tailwind/html@latest/scripts/popover.js"></script>
+
+
+
+</body>
+</html>
