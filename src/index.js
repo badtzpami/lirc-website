@@ -34,10 +34,20 @@ function fetchBorrowData() {
         querySnapshot.forEach((doc) => {
             const data = doc.data();
 
-            // Display the data on the website
-            document.getElementById('txtPlaceholder').innerHTML += `
-                <p>userID: ${data.userID} | Book Name: ${data.modelBookName} | Author: ${data.modelBookAuthor} | Borrower: ${data.modelBorrower} | Status: ${data.modelBorrowStatus} | Book code: ${data.modelBookCode} | Genre: ${data.modelBookGenre} | Borrow date: ${data.modelBorrowDate} | Borrow status: ${data.modelBorrowStatus} | Borrow deadline: ${data.modelBorrowDeadline} | Program: ${data.modelProgram} | Section: ${data.modelSection}, Year: ${data.modelYear}</p>
-            `;
+            // Display the data on the website as a table row
+                document.getElementById('txtPlaceholder').innerHTML += `
+                <tr>
+                <td>${data.modelBookCode}</td>
+                <td>${data.modelBookName}</td>
+                <td>${data.modelBookAuthor}</td>
+                <td>${data.modelBorrower}</td>
+                <td>${data.modelProgram}</td>
+                <td>${data.modelSection}</td>
+                <td>${data.modelBorrowDate}</td>
+                <td>${data.modelDeadline}</td>
+                <td>${data.modelBorrowStatus}</td>
+                </tr>
+                `;
             console.log(`Book Name: ${data.modelBookName}, Author: ${data.modelBookAuthor}`);
         });
     });

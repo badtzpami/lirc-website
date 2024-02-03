@@ -86,18 +86,22 @@
   </div>
 </nav>
 
+
 <!-- Table -->
-<div class="overflow-x-auto  flex justify-center items-center min-h-screen font-['Poppins'] bg-white text-blue-gray-900">
-  <div class="overflow-x-auto">
+<div class="overflow-x-auto flex justify-center items-center min-h-screen font-['Poppins'] bg-white text-blue-gray-900 mx-1">
+  <div class="overflow-x-auto justify-center items-center text-center mx-10">
+
+    <!-- dropdown -->
+    <details class="dropdown text-center mb-20">
+      <summary class="m-0 btn">options</summary>
+      <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+        <li><a>Item 1</a></li>
+        <li><a>Item 2</a></li>
+      </ul>
+    </details>
     <table class="table">
-      <!-- head -->
       <thead>
         <tr class=" text-blue-gray-900">
-          <th>
-            <label>
-              <input type="checkbox" class="checkbox" />
-            </label>
-          </th>
           <th>Code</th>
           <th>Book Name</th>
           <th>Book Author</th>
@@ -107,216 +111,44 @@
           <th>Borrow Date</th>
           <th>Deadline</th>
           <th>Status</th>
-          <th>Notes</th>
-          <th>Modification</th>
-          <th></th>
+          <!-- <th>Modification</th> -->
         </tr>
       </thead>
-      <tbody>
-        <!-- row 1 -->
-        <tr class="date-time-table">
-          <th>
-            <label>
-              <input type="checkbox" class="checkbox" />
-            </label>
-          </th>
-          <td>
-            <div class="flex items-center space-x-3">
-              <div>
-                <div class="font-bold" id="modelBookCode">543210</div>
-                <!-- <div class="text-sm opacity-50">text</div> -->
-              </div>
-            </div>
-          </td>
-          <td id="modelBookName">${data.modelBookName}<br/></td>
-          <td id="modelBookAuthor">Author Sample</td>
-          <td id="modelBorrower">Borrower Sample</td>
-          <td id="modelProgram">BSIT</td>
-          <td id="modelSection">IT 6</td>
-          <td id="modelBorrowDate">11/12/2023, 03:21:28 PM</td>
-          <td id="modelBorrowDeadline">11/12/2023, 03:21:28 PM</td>
-          <td id="modelBorrowStatus">On borrow</td>
-          <td></td>
-          <th>
-            <button class="btn btn-ghost btn-sm">
-              <i class="fa-solid fa-trash-can text-red-500"></i>
-          </button>
-          <button class="btn btn-ghost btn-sm">
-            <i class="fa-solid fa-pen-to-square  text-green-500"></i>
-        </button>
-        </th>
-        </tr>
 
-        <!-- row 2 -->
-        <tr class="date-time-table">
-          <th>
-            <label>
-              <input type="checkbox" class="checkbox" />
-            </label>
-          </th>
-          <td>
-            <div class="flex items-center space-x-3">
-              <div>
-                <div class="font-bold" id="modelBookCode">543210</div>
-                <!-- <div class="text-sm opacity-50">text</div> -->
-              </div>
-            </div>
-          </td>
-          <td id="modelBookName">${data.modelBookName}<br/></td>
-          <td id="modelBookAuthor">Author Sample</td>
-          <td id="modelBorrower">Borrower Sample</td>
-          <td id="modelProgram">BSIT</td>
-          <td id="modelSection">IT 6</td>
-          <td id="modelBorrowDate">11/12/2023, 03:21:28 PM</td>
-          <td id="modelBorrowDeadline">11/12/2023, 03:21:28 PM</td>
-          <td id="modelBorrowStatus">On borrow</td>
-          <td></td>
-          <th>
-            <button class="btn btn-ghost btn-sm">
-              <i class="fa-solid fa-trash-can text-red-500"></i>
-          </button>
-          <button class="btn btn-ghost btn-sm">
-            <i class="fa-solid fa-pen-to-square  text-green-500"></i>
-        </button>
-        </th>
-        </tr>
-        <!-- row 3 -->
-        <tr class="date-time-table">
-          <th>
-            <label>
-              <input type="checkbox" class="checkbox" />
-            </label>
-          </th>
-          <td>
-            <div class="flex items-center space-x-3">
-              <div>
-                <div class="font-bold" id="modelBookCode">543210</div>
-                <!-- <div class="text-sm opacity-50">text</div> -->
-              </div>
-            </div>
-          </td>
-          <td id="modelBookName">${data.modelBookName}<br/></td>
-          <td id="modelBookAuthor">Author Sample</td>
-          <td id="modelBorrower">Borrower Sample</td>
-          <td id="modelProgram">BSIT</td>
-          <td id="modelSection">IT 6</td>
-          <td id="modelBorrowDate">11/12/2023, 03:21:28 PM</td>
-          <td id="modelBorrowDeadline">11/12/2023, 03:21:28 PM</td>
-          <td id="modelBorrowStatus">On borrow</td>
-          <td></td>
-          <th>
-            <button class="btn btn-ghost btn-sm">
-              <i class="fa-solid fa-trash-can text-red-500"></i>
-          </button>
-          <button class="btn btn-ghost btn-sm">
-            <i class="fa-solid fa-pen-to-square  text-green-500"></i>
-        </button>
-        </th>
-        </tr>
-        <!-- row 4 -->
-        <tr class="date-time-table">
-          <th>
-            <label>
-              <input type="checkbox" class="checkbox" />
-            </label>
-          </th>
-          <td>
-            <div class="flex items-center space-x-3">
-              <div>
-                <div class="font-bold" id="modelBookCode">543210</div>
-                <!-- <div class="text-sm opacity-50">text</div> -->
-              </div>
-            </div>
-          </td>
-          <td id="modelBookName">${data.modelBookName}<br/></td>
-          <td id="modelBookAuthor">Author Sample</td>
-          <td id="modelBorrower">Borrower Sample</td>
-          <td id="modelProgram">BSIT</td>
-          <td id="modelSection">IT 6</td>
-          <td id="modelBorrowDate">11/12/2023, 03:21:28 PM</td>
-          <td id="modelBorrowDeadline">11/12/2023, 03:21:28 PM</td>
-          <td id="modelBorrowStatus">On borrow</td>
-          <td></td>
-          <th>
-            <button class="btn btn-ghost btn-sm">
-              <i class="fa-solid fa-trash-can text-red-500"></i>
-          </button>
-          <button class="btn btn-ghost btn-sm">
-            <i class="fa-solid fa-pen-to-square  text-green-500"></i>
-        </button>
-        </th>
-        </tr>
-        <!-- row 5 -->
-        <tr class="date-time-table">
-          <th>
-            <label>
-              <input type="checkbox" class="checkbox" />
-            </label>
-          </th>
-          <td>
-            <div class="flex items-center space-x-3">
-              <div>
-                <div class="font-bold" id="modelBookCode">543210</div>
-                <!-- <div class="text-sm opacity-50">text</div> -->
-              </div>
-            </div>
-          </td>
-          <td id="modelBookName">${data.modelBookName}<br/></td>
-          <td id="modelBookAuthor">Author Sample</td>
-          <td id="modelBorrower">Borrower Sample</td>
-          <td id="modelProgram">BSIT</td>
-          <td id="modelSection">IT 6</td>
-          <td id="modelBorrowDate">11/12/2023, 03:21:28 PM</td>
-          <td id="modelBorrowDeadline">11/12/2023, 03:21:28 PM</td>
-          <td id="modelBorrowStatus">On borrow</td>
-          <td></td>
-          <th>
-            <button class="btn btn-ghost btn-sm">
-              <i class="fa-solid fa-trash-can text-red-500"></i>
-          </button>
-          <button class="btn btn-ghost btn-sm">
-            <i class="fa-solid fa-pen-to-square  text-green-500"></i>
-        </button>
-        </th>
-        </tr>
-        <!-- row 6 -->
-        <tr class="date-time-table">
-          <th>
-            <label>
-              <input type="checkbox" class="checkbox" />
-            </label>
-          </th>
-          <td>
-            <div class="flex items-center space-x-3">
-              <div>
-                <div class="font-bold" id="modelBookCode">543210</div>
-                <!-- <div class="text-sm opacity-50">text</div> -->
-              </div>
-            </div>
-          </td>
-          <td id="modelBookName">${data.modelBookName}<br/></td>
-          <td id="modelBookAuthor">Author Sample</td>
-          <td id="modelBorrower">Borrower Sample</td>
-          <td id="modelProgram">BSIT</td>
-          <td id="modelSection">IT 6</td>
-          <td id="modelBorrowDate">11/12/2023, 03:21:28 PM</td>
-          <td id="modelBorrowDeadline">11/12/2023, 03:21:28 PM</td>
-          <td id="modelBorrowStatus">On borrow</td>
-          <td></td>
-          <th>
-            <button class="btn btn-ghost btn-sm">
-              <i class="fa-solid fa-trash-can text-red-500"></i>
-          </button>
-          <button class="btn btn-ghost btn-sm">
-            <i class="fa-solid fa-pen-to-square  text-green-500"></i>
-        </button>
-        </th>
-        </tr>
-      </tbody>
+      <tbody id="txtPlaceholder">
+        <!-- row -->
+        <tr>
+            <td>
+                <div class="flex items-center space-x-3">
+                    <div>
+                        <div class="font-bold" id="modelBookCode"></div>
+                        <!-- <div class="text-sm opacity-50">text</div> -->
+                    </div>
+                </div>
+            </td>
+            <td id="modelBookName"><br/></td>
+            <td id="modelBookAuthor"></td>
+            <td id="modelBorrower"></td>
+            <td id="modelProgram"></td>
+            <td id="modelSection"></td>
+            <td id="modelBorrowDate"></td>
+            <td id="modelBorrowDeadline"></td>
+            <td id="modelBorrowStatus"></td>   
+            
+
+            <!-- <td style="visibility: visible;">
+              <button class="btn btn-ghost btn-sm">
+                  <i class="fa-regular fa-square-check text-blue-500"></i>
+              </button>
+              <button class="btn btn-ghost btn-sm">
+                  <i class="fa-solid fa-pen-to-square  text-green-500"></i>
+              </button>
+          </td> -->
+        </tr>  
+    </tbody>
       <!-- foot -->
       <tfoot>
         <tr>
-          <th></th>
           <th>Code</th>
           <th>Book Name</th>
           <th>Book Author</th>
@@ -327,13 +159,25 @@
           <th>Deadline</th>
           <th>Status</th>
           <th>Notes</th>
-          <th>Modification</th>
-          <th></th>
+          <!-- <th>Modification</th> -->
         </tr>
       </tfoot>
     </table>
+<div class="mx-auto text-center">
+  <a href="/src/home.html"> 
+    <button class="btn btn-square btn-outline my-10">
+      <i class="fa-solid fa-less-than  text-dark-400"></i>
+    </button>
+  </a>
+<a href="/src/returned-table.html">
+    <button class="btn btn-square btn-outline my-10">
+      <i class="fa-solid fa-greater-than  text-dark-400"></i>
+    </button>
+  </a>
   </div>
   </div>
+  </div>
+  <!-- End of Table -->
 
 <!--Footer container-->
 <footer
@@ -359,6 +203,8 @@
     </div>
   </div>
 </footer>
+<!-- End of Footer container-->
+
 
 <!-- External libraries -->
 <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/script-name.js"></script>
