@@ -19,6 +19,12 @@
 </head>
 
 <body>
+  <div id="loading" class="fixed top-0 left-0 w-full h-full bg-white bg-opacity-70 z-50 flex justify-center items-center">
+    <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" role="status">
+      <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
+    </div>
+  </div>
+  
   <nav
   class="relative flex w-full flex-wrap  items-center justify-center bg-cover bg-no-repeat bg-center py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-neutral-600 lg:py-4 " style="background-image: url(/src/img/background.jpg);"> 
   <div class="flex w-full flex-wrap items-center justify-center px-3">
@@ -33,7 +39,7 @@
         <div class="items-center justify-center ml-10">
         <img
         alt="admin profile picture"
-        src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHByb2Zlc3Npb25hbCUyMHByb2ZpbGUlMjBwaWN0dXJlfGVufDB8fDB8fHww"
+        src="/src/img/pfp.png"
         class="border-solid border-2 relative inline-block h-12 w-12 cursor-pointer rounded-full object-cover object-center"
         data-popover-target="profile-menu"/>
         <p class="text-sm font-thin text-center text-white uppercase mt-2">admin</p> </div>
@@ -83,7 +89,7 @@
 </nav>
 
   <!-- cards -->
-  <div class="  flex justify-center items-center min-h-screen font-['Poppins'] ">
+  <div class="  flex justify-center items-center min-h-max font-['Poppins'] my-20 ">
 <!-- Borrowed -->
 <a href="/src/borrowed-table.html">
 <div class="mx-10 my-20 relative flex flex-col text-gray-700 bg-white shadow-md w-96 rounded-xl bg-clip-border cursor-pointer hover:bg-blue-gray-500 hover:bg-opacity-25 transition duration-300 ease-in-out transform hover:scale-105">
@@ -93,8 +99,7 @@
   </h4>
   </div>
   <div class="p-6">
-    <h5 class="block mb-2 text-center lg:text-5xl font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
-      0
+    <h5 class="block mb-2 text-center lg:text-5xl font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900" id="borrowCount"> 
     </h5>
   </div>
   <div class="p-6 pt-0">

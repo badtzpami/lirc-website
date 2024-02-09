@@ -23,8 +23,14 @@
 </head>
 
 <body>
+  <div id="loading" class="fixed top-0 left-0 w-full h-full bg-white bg-opacity-70 z-50 flex justify-center items-center">
+    <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" role="status">
+      <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
+    </div>
+  </div>
+
   <nav
-  class="relative flex w-full flex-wrap  items-center justify-center bg-cover bg-no-repeat bg-center py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-neutral-600 lg:py-4 " style="background-image: url(/src/img/background.jpg);"> 
+  class="relative flex w-full flex-wrap  items-center justify-center bg-cover bg-no-repeat bg-center py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-neutral-600 lg:py-4 " style="background-image: url(/src/img/background.jpg);" > 
   <div class="flex w-full flex-wrap items-center justify-center px-3">
     <div>
       <div class="mx-20 my-1 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 lg:mb-0 lg:mt-0" href="#">
@@ -37,7 +43,7 @@
         <div class="items-center justify-center ml-10">
         <img
         alt="admin profile picture"
-        src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHByb2Zlc3Npb25hbCUyMHByb2ZpbGUlMjBwaWN0dXJlfGVufDB8fDB8fHww"
+        src="/src/img/pfp.png"
         class="border-solid border-2 relative inline-block h-12 w-12 cursor-pointer rounded-full object-cover object-center"
         data-popover-target="profile-menu"/>
         <p class="text-sm font-thin text-center text-white uppercase mt-2">admin</p> </div>
@@ -88,20 +94,20 @@
 
 
 <!-- Table -->
-<div class="overflow-x-auto flex justify-center items-center min-h-screen font-['Poppins'] bg-white text-blue-gray-900 mx-1">
-  <div class="overflow-x-auto justify-center items-center text-center mx-10">
+<div class="overflow-x-auto flex justify-center items-center min-h-max font-['Poppins'] bg-white text-blue-gray-900 text-xs" id="content" class="hidden">
+  <div class="overflow-x-auto justify-center items-center text-center mt-20 mx-10">
 
     <!-- dropdown -->
-    <details class="dropdown text-center mb-20">
+    <!-- <details class="dropdown text-center mb-20">
       <summary class="m-0 btn">options</summary>
       <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
         <li><a>Item 1</a></li>
         <li><a>Item 2</a></li>
       </ul>
-    </details>
+    </details> -->
     <table class="table">
       <thead>
-        <tr class=" text-blue-gray-900">
+        <tr class=" text-blue-gray-900 text-sm">
           <th>Code</th>
           <th>Book Name</th>
           <th>Book Author</th>
@@ -110,8 +116,7 @@
           <th>Section</th>
           <th>Borrow Date</th>
           <th>Deadline</th>
-          <th>Status</th>
-          <!-- <th>Modification</th> -->
+          <th>Modification</th>
         </tr>
       </thead>
 
@@ -134,7 +139,6 @@
             <td id="modelBorrowDate"></td>
             <td id="modelBorrowDeadline"></td>
             <td id="modelBorrowStatus"></td>   
-            
 
             <!-- <td style="visibility: visible;">
               <button class="btn btn-ghost btn-sm">
@@ -157,9 +161,7 @@
           <th>Section</th>
           <th>Borrow Date</th>
           <th>Deadline</th>
-          <th>Status</th>
-          <th>Notes</th>
-          <!-- <th>Modification</th> -->
+          <th>Modification</th>
         </tr>
       </tfoot>
     </table>

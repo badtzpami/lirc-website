@@ -38,14 +38,21 @@ function fetchBorrowData() {
                 document.getElementById('txtPlaceholder').innerHTML += `
                 <tr>
                 <td>${data.modelBookCode}</td>
-                <td>${data.modelBookName}</td>
+                <td>${data.modelBookTitle}</td>
                 <td>${data.modelBookAuthor}</td>
-                <td>${data.modelBorrower}</td>
-                <td>${data.modelProgram}</td>
-                <td>${data.modelSection}</td>
+                <td>${data.modelUserName}</td>
+                <td>${data.modelUserProgram}</td>
+                <td>${data.modelUserSection}</td>
                 <td>${data.modelBorrowDate}</td>
-                <td>${data.modelDeadline}</td>
-                <td>${data.modelBorrowStatus}</td>
+                <td>${data.modelBorrowDeadline}</td>
+                <td>
+              <button class="btn btn-ghost btn-sm">
+                  <i <i class="fa-solid fa-trash text-red-500"></i>
+              </button>
+              <button class="btn btn-ghost btn-sm">
+                  <i class="fa-solid fa-pen-to-square  text-green-500"></i>
+              </button>
+          </td>
                 </tr>
                 `;
             console.log(`Book Name: ${data.modelBookName}, Author: ${data.modelBookAuthor}`);
@@ -67,5 +74,42 @@ function setupDatabaseListener() {
     });
 }
 
-// Set up the database listener
+// BORROW COUNT
 setupDatabaseListener();
+
+// Function to fetch borrow data and update UI
+function fetchAndRenderBorrowData() {
+    // Reference to the 'ccc-library-app-borrow-data' collection
+    const borrowDataCollection = collection(db, 'ccc-library-app-borrow-data');
+
+    // Attach a listener to listen for changes in the data
+    onSnapshot(borrowDataCollection, (querySnapshot) => {
+        // Count the number of documents in the collection
+        const borrowCount = querySnapshot.size;
+
+        // Update the UI with the new borrow count
+        document.getElementById('borrowCount').textContent = borrowCount.toString();
+    });
+}
+
+// Initial fetch and render when the page loads
+fetchAndRenderBorrowData();
+
+//loading....
+function loading() {
+    // Display loading indicator
+    document.getElementById('loading').classList.remove('hidden');
+
+    // Simulate fetching data (replace this with your actual fetch request)
+    setTimeout(function() {
+        // Hide loading indicator after data is fetched (replace this with your actual data fetching logic)
+        document.getElementById('loading').classList.add('hidden');
+        document.getElementById('content').classList.remove('hidden');
+    }, 2000); // Simulating a 2-second delay for fetching data
+}
+
+window.onload = loading;
+
+
+
+
