@@ -35,7 +35,6 @@ function getBorrowTimeDifference(modelBorrowDeadlineDateTime) {
     // Get the current date and time in the same format
     const options = { timeZone: 'Asia/Manila' };
     const currentDateTime = new Date().toLocaleString('en-US', options);
-    console.log("Current time: ", currentDateTime)
  
     // Calculate the time difference in minutes
     const timeDifference = calculateDateTimeDifferenceInMinutes(currentDateTime, borrowDeadlineDateTimeFinal);
@@ -49,12 +48,17 @@ function calculateDateTimeDifferenceInMinutes(dateTime1, dateTime2) {
     const parsedDateTime2 = new Date(dateTime2);
  
     const timeDifference = parsedDateTime2.getTime() - parsedDateTime1.getTime();
-    console.log("Current time-final: ", parsedDateTime1.getTime())
  
     return timeDifference / (60 * 1000);
 }
  
+// Update a particular HTML element with a new value
+function updateHTML(elmId, value) {
+    document.getElementById(elmId).innerHTML += value;
+}
+ 
 function fetchBorrowData() {
+    //  PAST DUES--------------------------------------------------------------------------------------------------------------
     const pastDueCollection = collection(db, 'ccc-library-app-borrow-data');
  
     getDocs(pastDueCollection)
@@ -66,45 +70,105 @@ function fetchBorrowData() {
                 const deadline = data.modelBorrowDeadline;
                 const timeDifference = getBorrowTimeDifference(deadline);
  
-                console.log('Time difference: ', getBorrowTimeDifference(deadline))
-                console.log('Book name: ', data.modelBookTitle)
                 if (Number(timeDifference) <= 0) {
                     pastDueData.push(data);
                 }
             });
  
             document.getElementById('overdueCount').textContent = pastDueData.length.toString();
+            ///////////////////////////////////////
+            // // Clear existing content
+            // document.getElementById('txtPlaceholderOverdue').innerHTML = ''
  
-            console.log('Past due count:', pastDueData.length);
+            // Iterate through pastDueData array
+            pastDueData.forEach((data) => {
+                console.log('past due counter')
+                // Display the data on the website as a table row
+                document.getElementById('txtPlaceholderOverdue').innerHTML += `
+                    <tr>
+                        <td>${data.modelBookCode}</td>
+                        <td>${data.modelBookTitle}</td>
+                        <td>${data.modelBookAuthor}</td>
+                        <td>${data.modelUserName}</td>
+                        <td>${data.modelUserProgram}</td>
+                        <td>${data.modelUserSection}</td>
+                        <td>${data.modelBorrowDate}</td>
+                        <td>${data.modelBorrowDeadline}</td>
+                        <td>
+                            <button class="btn btn-ghost btn-sm">
+                                <i class="fa-solid fa-trash text-red-500"></i>
+                            </button>
+                            <button class="btn btn-ghost btn-sm">
+                                <i class="fa-solid fa-pen-to-square text-green-500"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
         })
         .catch((error) => {
             console.error('Error fetching past due data:', error);
         });
  
- 
- 
- 
- 
-    const returnedData = collection(db, 'ccc-library-app-return-info');
- 
-    let totalDocuments = 0;  // Initialize a counter
- 
-    onSnapshot(returnedData, (querySnapshot) => {
-        // Reset the counter for each snapshot to calculate the total in the current snapshot
-        totalDocuments = 0;
- 
-        querySnapshot.forEach((doc) => {
-            const returnedData = doc.data();
- 
-            // Your processing logic for each document if needed
- 
-            totalDocuments++;  // Increment the counter for each document
+        //  RETURNED-----------------------------------------------------------------------------------------------------------
+        const returnedData = collection(db, 'ccc-library-app-return-info');
+        let totalDocuments = 0;  // Initialize a counter
+        
+        // Function to update the UI with the total count of returned documents
+        function updateReturnedCount(count) {
+            const returnedCountElement = document.getElementById('returnedCount');
+            if (returnedCountElement) {
+                returnedCountElement.textContent = count.toString();
+            } else {
+                console.error('Returned count element not found.');
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Retrieve the initial count from localStorage
+            totalDocuments = parseInt(localStorage.getItem('totalDocuments')) || 0;
+            updateReturnedCount(totalDocuments);
+        
+            onSnapshot(returnedData, (querySnapshot) => {
+                // Reset the counter for each snapshot to calculate the total in the current snapshot
+                totalDocuments = 0;
+                querySnapshot.forEach((doc) => {
+                    const returnedData = doc.data();
+        
+                    // Your processing logic for each document if needed
+                    updateHTML('returnedTable', `
+                        <tr>
+                            <td>${returnedData.bookCode}</td>
+                            <td>${returnedData.bookName}</td>
+                            <td>${returnedData.bookAuthor}</td>
+                            <td>${returnedData.borrowerName}</td>
+                            <td>${returnedData.bookGenre}</td>
+                            <td>${returnedData.borrowerEmail}</td>
+                            <td>${returnedData.returnedDate}</td>
+                            <td>
+                                <button class="btn btn-ghost btn-sm">
+                                    <i class="fa-solid fa-trash text-red-500"></i>
+                                </button>
+                                <button class="btn btn-ghost btn-sm">
+                                    <i class="fa-solid fa-pen-to-square text-green-500"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    `);
+        
+                    totalDocuments++;  // Increment the counter for each document
+                });
+        
+                // Update the UI with the new total count
+                updateReturnedCount(totalDocuments);
+        
+                // Store the updated count in localStorage
+                localStorage.setItem('totalDocuments', totalDocuments);
+            });    
         });
  
-        console.log('Total return counter:', totalDocuments);
-        document.getElementById('returnedCount').textContent = totalDocuments.toString();
-    });
- 
+
+    //  CURRENT BORROWS---------------------------------------------------------------------------------------------------------------
     // Reference to the 'ccc-library-borrow-data' collection
     const borrowDataCollection = collection(db, 'ccc-library-app-borrow-data');
  
@@ -138,7 +202,6 @@ function fetchBorrowData() {
                     </td>
                 </tr>
             `;
-            console.log(`Book Name: ${data.modelBookName}, Author: ${data.modelBookAuthor}`);
         });
     });
 }
